@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension version="3.1" type="plugin" group="j2store" method="upgrade">
+    <name>plg_j2store_payment_concordpay</name>
+    <author>ConcordPay</author>
+    <creationDate>2022-01-05</creationDate>
+    <copyright>Copyright (C) 2021 ConcordPay. All rights reserved.</copyright>
+    <license>GNU/GPLv3 https://www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorEmail>serhii.shylo@mustpay.tech</authorEmail>
+    <authorUrl>https://concordpay.concord.ua</authorUrl>
+    <version>1.0.0</version>
+    <description>PLG_J2STORE_PAYMENT_CONCORDPAY_XML_DESCRIPTION</description>
+    <files>
+        <filename plugin="payment_concordpay">payment_concordpay.php</filename>
+        <filename plugin="payment_concordpay">ConcordPayApi.php</filename>
+        <filename plugin="payment_concordpay">index.html</filename>
+        <filename plugin="payment_concordpay">README.md</filename>
+        <folder>payment_concordpay</folder>
+        <folder>language</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/en-GB.plg_j2store_payment_concordpay.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.plg_j2store_payment_concordpay.sys.ini</language>
+        <language tag="ru-RU">language/ru-RU/ru-RU.plg_j2store_payment_concordpay.ini</language>
+        <language tag="ru-RU">language/ru-RU/ru-RU.plg_j2store_payment_concordpay.sys.ini</language>
+        <language tag="uk-UA">language/uk-UA/uk-UA.plg_j2store_payment_concordpay.ini</language>
+        <language tag="uk-UA">language/uk-UA/uk-UA.plg_j2store_payment_concordpay.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params" addfieldpath="/components/com_j2store/fields">
+            <fieldset name="basic">
+                <field name="articleid"
+                       type="text"
+                       size="10"
+                       default=""
+                       label="j2store_thanks_msg"
+                       description="j2store_thanks_msg_desc"
+                />
+                <field name="geozone_id"
+                       type="geozonelist"
+                       default=""
+                       label="J2STORE_GEOZONE"
+                       description="J2STORE_GEOZONE_DESC"
+                       addfieldpath="/administrator/components/com_j2store/models/fields"
+                />
+                <field name="merchant_id"
+                       type="text"
+                       default=""
+                       label="CONCORDPAY_MERCHANT_ID"
+                       description="CONCORDPAY_MERCHANT_ID_DESCRIPTION"
+                       required="required"
+                />
+                <field name="secret_key"
+                       type="text"
+                       default=""
+                       label="CONCORDPAY_SECRET_KEY"
+                       description="CONCORDPAY_SECRET_KEY_DESCRIPTION"
+                       required="required"
+                />
+                <field name="approved_status"
+                       type="paymentstatus"
+                       default="4"
+                       addfieldpath="plugins/j2store/payment_cash/payment_cash/fields"
+                       label="CONCORDPAY_APPROVED_STATUS"
+                       description="CONCORDPAY_APPROVED_STATUS_DESCRIPTION"
+                />
+                <field name="declined_status"
+                       type="paymentstatus"
+                       default="3"
+                       addfieldpath="plugins/j2store/payment_cash/payment_cash/fields"
+                       label="CONCORDPAY_DECLINED_STATUS"
+                       description="CONCORDPAY_APPROVED_STATUS_DESCRIPTION"
+                />
+                <field name="refunded_status"
+                       type="paymentstatus"
+                       default="5"
+                       addfieldpath="plugins/j2store/payment_cash/payment_cash/fields"
+                       label="CONCORDPAY_REFUNDED_STATUS"
+                       description="CONCORDPAY_REFUNDED_STATUS_DESCRIPTION"
+                />
+                <field name="language"
+                       type="list"
+                       default="UK"
+                       label="CONCORDPAY_PAGE_LANGUAGE"
+                       description="CONCORDPAY_PAGE_LANGUAGE_DESCRIPTION">
+                    <option value="ua">UA</option>
+                    <option value="ru">RU</option>
+                    <option value="en">EN</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+    <updateservers>
+        <server type="extension" name="J2Store plg_j2store_payment_concordpay Update Site">
+            <![CDATA[https://raw.githubusercontent.com/webdevconcord/joomla-j2store/master/update.xml]]></server>
+    </updateservers>
+</extension>

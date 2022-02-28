@@ -1,0 +1,1 @@
+DELETE FROM `#__extensions` WHERE `element` = 'payment_concordpay';
